@@ -65,6 +65,10 @@ yum install yum-utils -y
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 yum install containerd.io -y
 
+#start containerd
+systemctl enable --now containerd
+systemctl start containerd
+
 #daemon editing
 cat <<EOF | sudo tee /etc/docker/daemon.json
 {
