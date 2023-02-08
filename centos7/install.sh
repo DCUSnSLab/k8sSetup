@@ -1,7 +1,9 @@
+echo "System Update..."
 #system update
 yum -y install epel-release
 yum -y update
 
+echo "SELINUX disable ..."
 #SELINUX disable
 sudo setenforce 0
 sudo sed -i 's/^SELINUX=enforcing$/SELINUX=disabled/' /etc/selinux/config
@@ -10,6 +12,7 @@ sudo sed -i 's/^SELINUX=enforcing$/SELINUX=disabled/' /etc/selinux/config
 sudo swapoff -a
 sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 
+echo "Network Setup ....."
 cat <<EOF | sudo tee /etc/modules-load.d/containerd.conf
 overlay
 br_netfilter
@@ -22,8 +25,10 @@ net.bridge.bridge-nf-call-iptables = 1
 net.ipv4.ip_forward = 1
 EOF
 sudo modprobe br_netfilter
+sudo modprobe overlay
 sudo sysctl --system
 
+echo "Firewall Setup......"
 #Enable Firewall
 firewall-cmd --permanent --zone=public --add-port=6443/tcp
 firewall-cmd --permanent --zone=public --add-port=2379-2380/tcp
@@ -38,6 +43,7 @@ firewall-cmd --permanent --zone=public --add-port=443/tcp
 firewall-cmd --permanent --zone=public --add-port=4443/tcp
 firewall-cmd --reload
 
+echo "hosts setup...."
 # local small dns & vagrant cannot parse and delivery shell code.
 echo "203.250.35.27 m1-k8s" >> /etc/hosts
 echo "203.250.33.67 n1-swdeep" >> /etc/hosts
