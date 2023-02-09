@@ -1,9 +1,9 @@
 apiVersion: metallb.io/v1alpha1
 kind: AddressPool
 metadata:
-  namespace: metallb-system
+  namespace: metallb
   name: doc-example
 spec:
   protocol: layer2
   addresses:
-  - 203.250.33.67-203.250.33.70
+  - 203.250.33.68-203.250.33.70
