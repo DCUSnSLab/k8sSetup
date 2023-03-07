@@ -1,0 +1,30 @@
+apiVersion: projectcalico.org/v3
+kind: Node
+metadata:
+  annotations:
+    projectcalico.org/kube-labels: '{"beta.kubernetes.io/arch":"amd64","beta.kubernetes.io/os":"linux","kubernetes.io/arch":"amd64","kubernetes.io/hostname":"n3-swdeep","kubernetes.io/os":"linux"}'
+  creationTimestamp: "2023-02-10T04:10:21Z"
+  labels:
+    beta.kubernetes.io/arch: amd64
+    beta.kubernetes.io/os: linux
+    kubernetes.io/arch: amd64
+    kubernetes.io/hostname: n3-swdeep
+    kubernetes.io/os: linux
+  name: n3-swdeep
+  resourceVersion: "98528"
+  uid: 0a6db29d-0ba9-475b-a922-c32c18f89080
+spec:
+  addresses:
+  - address: 203.250.33.67/24
+  - address: 203.250.33.68/24
+  - address: 203.250.33.69/24
+  - address: 203.250.33.70/24
+  bgp:
+    ipv4Address: 203.250.33.67/24
+    ipv4IPIPTunnelAddr: 172.31.120.192
+  orchRefs:
+  - nodeName: n3-swdeep
+    orchestrator: k8s
+status:
+  podCIDRs:
+  - 172.31.1.0/24
