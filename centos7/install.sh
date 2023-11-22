@@ -41,6 +41,10 @@ firewall-cmd --permanent --zone=public --add-port=179/tcp
 firewall-cmd --permanent --zone=public --add-port=80/tcp
 firewall-cmd --permanent --zone=public --add-port=443/tcp
 firewall-cmd --permanent --zone=public --add-port=4443/tcp
+firewall-cmd --permanent --zone=public --add-port=7946/tcp
+firewall-cmd --permanent --zone=public --add-port=4433/tcp
+firewall-cmd --permanent --zone=public --add-port=9100/tcp
+firewall-cmd --permanent --zone=public --add-port=7472/tcp
 firewall-cmd --reload
 
 echo "hosts setup...."
@@ -48,6 +52,7 @@ echo "hosts setup...."
 echo "203.250.35.27 m1-k8s" >> /etc/hosts
 echo "203.250.33.67 n1-swdeep" >> /etc/hosts
 echo "203.250.32.219 n2-k8s" >> /etc/hosts
+echo "203.250.34.157 n4-k8s" >> /etc/hosts
 
 
 #inser kubenetes repo
