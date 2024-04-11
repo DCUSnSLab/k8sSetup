@@ -50,9 +50,13 @@ firewall-cmd --reload
 echo "hosts setup...."
 # local small dns & vagrant cannot parse and delivery shell code.
 echo "203.250.35.27 m1-k8s" >> /etc/hosts
-echo "203.250.33.67 n1-swdeep" >> /etc/hosts
-echo "203.250.32.219 n2-k8s" >> /etc/hosts
-echo "203.250.34.157 n4-k8s" >> /etc/hosts
+echo "203.250.35.87 m2-k8s" >> /etc/hosts
+echo "203.250.34.157 m3-k8s" >> /etc/hosts
+echo "203.250.35.243 m4-deep" >> /etc/hosts
+echo "203.250.33.99 n2-k8s" >> /etc/hosts
+echo "203.250.33.67 n3-swdeep" >> /etc/hosts
+echo "203.250.32.218 n4-k8s" >> /etc/hosts
+echo "203.250.33.84 harbor.cu.ac.kr" >> /etc/hosts
 
 
 #inser kubenetes repo
