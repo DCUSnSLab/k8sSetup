@@ -83,6 +83,9 @@ yum install yum-utils -y
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
 yum install containerd.io -y
 
+#install NFS
+yum install -y nfs-utils
+
 #start containerd
 systemctl enable --now containerd
 systemctl start containerd
