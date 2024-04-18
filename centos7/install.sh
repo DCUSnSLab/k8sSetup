@@ -89,6 +89,8 @@ yum install -y nfs-utils
 #start containerd
 systemctl enable --now containerd
 systemctl start containerd
+systemctl enable --now kubelet
+systemctl start kubelet
 systemctl enable --now docker
 systemctl start docker
 
