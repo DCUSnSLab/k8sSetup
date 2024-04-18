@@ -44,29 +44,33 @@ firewall-cmd --permanent --zone=public --add-port=4443/tcp
 firewall-cmd --permanent --zone=public --add-port=7946/tcp
 firewall-cmd --permanent --zone=public --add-port=4433/tcp
 firewall-cmd --permanent --zone=public --add-port=9100/tcp
+firewall-cmd --permanent --zone=public --add-port=9090/tcp
 firewall-cmd --permanent --zone=public --add-port=7472/tcp
+firewall-cmd --permanent --zone=public --add-port=6379/tcp
 firewall-cmd --reload
 
 echo "hosts setup...."
 # local small dns & vagrant cannot parse and delivery shell code.
 echo "203.250.35.27 m1-k8s" >> /etc/hosts
 echo "203.250.35.87 m2-k8s" >> /etc/hosts
-echo "203.250.34.157 m3-k8s" >> /etc/hosts
+echo "203.250.34.157 n4-k8s" >> /etc/hosts
 echo "203.250.35.243 m4-deep" >> /etc/hosts
 echo "203.250.33.99 n2-k8s" >> /etc/hosts
 echo "203.250.33.67 n3-swdeep" >> /etc/hosts
-echo "203.250.32.218 n4-k8s" >> /etc/hosts
-echo "203.250.33.84 harbor.cu.ac.kr" >> /etc/hosts
+echo "203.250.33.103 n20-k8s" >> /etc/hosts
+echo "203.250.32.219 n21-k8s" >> /etc/hosts
+echo "203.250.32.220 n22-k8s" >> /etc/hosts
+echo "203.250.33.90 harbor.cu.ac.kr" >> /etc/hosts
 
 
 #inser kubenetes repo
 cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
 [kubernetes]
 name=Kubernetes
-baseurl=https://pkgs.k8s.io/core:/stable:/v1.29/rpm/
+baseurl=https://pkgs.k8s.io/core:/stable:/v1.30/rpm/
 enabled=1
 gpgcheck=1
-gpgkey=https://pkgs.k8s.io/core:/stable:/v1.29/rpm/repodata/repomd.xml.key
+gpgkey=https://pkgs.k8s.io/core:/stable:/v1.30/rpm/repodata/repomd.xml.key
 exclude=kubelet kubeadm kubectl cri-tools kubernetes-cni
 EOF
 
