@@ -81,7 +81,7 @@ sudo systemctl enable --now kubelet
 #install containerd
 yum install yum-utils -y
 yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-yum install containerd.io -y
+yum install docker-ce docker-ce-cli containerd.io -y
 
 #install NFS
 yum install -y nfs-utils
@@ -89,6 +89,13 @@ yum install -y nfs-utils
 #start containerd
 systemctl enable --now containerd
 systemctl start containerd
+systemctl enable --now docker
+systemctl start docker
+
+#docker.sock 권한 변경 및 시작프로그램 등록
+sudo chmod 666 /var/run/docker.sock
+echo "sudo chmod 666 /var/run/docker.sock" | sudo tee -a /etc/rc.d/rc.local > /dev/null
+
 
 #daemon editing
 cat <<EOF | sudo tee /etc/docker/daemon.json
