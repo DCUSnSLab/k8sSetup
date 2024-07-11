@@ -44,6 +44,13 @@ firewall-cmd --permanent --zone=public --add-port=4443/tcp
 firewall-cmd --permanent --zone=public --add-port=7946/tcp
 firewall-cmd --permanent --zone=public --add-port=4433/tcp
 firewall-cmd --permanent --zone=public --add-port=9100/tcp
+firewall-cmd --permanent --zone=public --add-port=7472/tcp
+firewall-cmd --permanent --zone=public --add-port=8080/tcp
+firewall-cmd --permanent --zone=public --add-port=8181/tcp
+firewall-cmd --permanent --zone=public --add-port=4789/tcp
+firewall-cmd --permanent --zone=public --add-port=5473/tcp
+firewall-cmd --permanent --zone=public --add-port=9153/tcp
+firewall-cmd --permanent --zone=public --add-port=8022/tcp
 firewall-cmd --permanent --zone=public --add-port=9090/tcp
 firewall-cmd --permanent --zone=public --add-port=7472/tcp
 firewall-cmd --permanent --zone=public --add-port=6379/tcp
