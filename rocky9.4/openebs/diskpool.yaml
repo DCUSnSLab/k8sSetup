@@ -1,0 +1,29 @@
+apiVersion: openebs.io/v1beta2
+kind: DiskPool
+metadata:
+  name: pool-on-node1 
+  namespace: openebs
+spec:
+  node: "worker1"
+  disks:
+    - /dev/sdb
+---
+apiVersion: openebs.io/v1beta2
+kind: DiskPool
+metadata:
+  name: pool-on-node2
+  namespace: openebs
+spec:
+  node: "worker2"
+  disks:
+    - /dev/sdb
+---
+apiVersion: openebs.io/v1beta2
+kind: DiskPool
+metadata:
+  name: pool-on-node3
+  namespace: openebs
+spec:
+  node: "worker3"
+  disks:
+    - /dev/sdb
