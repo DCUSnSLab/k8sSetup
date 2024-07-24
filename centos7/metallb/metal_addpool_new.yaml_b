@@ -5,8 +5,13 @@ metadata:
   namespace: metallb
 spec:
   addresses:
-  - 203.250.33.75-203.250.33.75
   - 203.250.33.83-203.250.33.87
+  - 203.250.33.90-203.250.33.90
+  - 203.250.34.140-203.250.34.140
+  - 203.250.34.143-203.250.34.145
+
+
+---
 
 apiVersion: metallb.io/v1beta1
 kind: L2Advertisement
