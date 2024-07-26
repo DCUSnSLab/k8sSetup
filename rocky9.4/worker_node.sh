@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 echo "Setup Rocky OS huge page..."
 echo "vm.nr_hugepages = 4096" | sudo tee -a /etc/sysctl.conf
 sudo sysctl -p
