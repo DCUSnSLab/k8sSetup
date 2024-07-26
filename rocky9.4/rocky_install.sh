@@ -60,6 +60,8 @@ sudo systemctl disable firewalld
 
 echo "hosts setup...."
 # local small dns & vagrant cannot parse and delivery shell code.
+echo "203.250.32.103 k8s-lb1" >> /etc/hosts
+echo "203.250.34.161 k8s-lb2 " >> /etc/hosts
 echo "203.250.35.87 m1-k8s" >> /etc/hosts
 echo "203.250.34.157 m2-k8s" >> /etc/hosts
 echo "203.250.35.27 m3-k8s" >> /etc/hosts
@@ -67,6 +69,8 @@ echo "203.250.32.220 n1-k8s" >> /etc/hosts
 echo "203.250.33.103 n2-k8s" >> /etc/hosts
 echo "203.250.32.219 n3-k8s" >> /etc/hosts
 echo "203.250.33.99 n4-k8s" >> /etc/hosts
+echo "203.250.35.243 d1-k8s" >> /etc/hosts
+echo "203.250.33.67 d2-k8s" >> /etc/hosts
 echo "203.250.33.90 harbor.cu.ac.kr" >> /etc/hosts
 
 
