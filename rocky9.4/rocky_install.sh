@@ -55,13 +55,19 @@ firewall-cmd --permanent --zone=public --add-port=9090/tcp
 firewall-cmd --permanent --zone=public --add-port=7472/tcp
 firewall-cmd --permanent --zone=public --add-port=6379/tcp
 firewall-cmd --reload
+sudo systemctl stop firewalld
+sudo systemctl disable firewalld
 
 echo "hosts setup...."
 # local small dns & vagrant cannot parse and delivery shell code.
-echo "203.250.33.144 master" >> /etc/hosts
-echo "203.250.34.189 worker1" >> /etc/hosts
-echo "203.250.33.53 worker2" >> /etc/hosts
-echo "203.250.34.203 worker3" >> /etc/hosts
+echo "203.250.35.87 m1-k8s" >> /etc/hosts
+echo "203.250.34.157 m2-k8s" >> /etc/hosts
+echo "203.250.35.27 m3-k8s" >> /etc/hosts
+echo "203.250.32.220 n1-k8s" >> /etc/hosts
+echo "203.250.33.103 n2-k8s" >> /etc/hosts
+echo "203.250.32.219 n3-k8s" >> /etc/hosts
+echo "203.250.33.99 n4-k8s" >> /etc/hosts
+echo "203.250.33.90 harbor.cu.ac.kr" >> /etc/hosts
 
 
 #inser kubenetes repo
