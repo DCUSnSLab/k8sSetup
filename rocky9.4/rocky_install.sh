@@ -11,6 +11,7 @@ sudo sed -i 's/^SELINUX=enforcing$/SELINUX=disabled/' /etc/selinux/config
 #SWAP Disable
 sudo swapoff -a
 sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
+sudo systemctl mask swap.target
 
 echo "Network Setup ....."
 cat <<EOF | sudo tee /etc/modules-load.d/containerd.conf
@@ -108,21 +109,3 @@ systemctl start docker
 #docker.sock 권한 변경 및 시작프로그램 등록
 sudo chmod 666 /var/run/docker.sock
 echo "sudo chmod 666 /var/run/docker.sock" | sudo tee -a /etc/rc.d/rc.local > /dev/null
-
-
-#daemon editing
-cat <<EOF | sudo tee /etc/docker/daemon.json
-{
-  "exec-opts": ["native.cgroupdriver=systemd"],
-  "log-driver": "json-file",
-  "log-opts": {
-    "max-size": "100m"
-  },
-  "storage-driver": "overlay2",
-  "storage-opts": [
-    "overlay2.override_kernel_check=true"
-  ]
-}
-EOF
-
-
