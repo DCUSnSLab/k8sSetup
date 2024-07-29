@@ -69,7 +69,7 @@ echo "203.250.35.27 m3-k8s" >> /etc/hosts
 echo "203.250.32.220 n1-k8s" >> /etc/hosts
 echo "203.250.33.103 n2-k8s" >> /etc/hosts
 echo "203.250.32.219 n3-k8s" >> /etc/hosts
-echo "203.250.33.99 n4-k8s" >> /etc/hosts
+echo "203.250.33.87 n4-k8s" >> /etc/hosts
 echo "203.250.35.243 d1-k8s" >> /etc/hosts
 echo "203.250.33.67 d2-k8s" >> /etc/hosts
 echo "203.250.33.90 harbor.cu.ac.kr" >> /etc/hosts
