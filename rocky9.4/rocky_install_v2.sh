@@ -120,3 +120,12 @@ systemctl start docker
 #docker.sock 권한 변경 및 시작프로그램 등록
 sudo chmod 666 /var/run/docker.sock
 echo "sudo chmod 666 /var/run/docker.sock" | sudo tee -a /etc/rc.d/rc.local > /dev/null
+
+# huge_page 설정
+echo "vm.nr_hugepages = 4096" | sudo tee -a /etc/sysctl.conf
+sudo sysctl -p
+
+# nvme-tcp 설정
+sudo dnf install nvme-cli
+sudo modprobe nvme-tcp
+echo "nvme-tcp" | sudo tee /etc/modules-load.d/nvme-tcp.conf
