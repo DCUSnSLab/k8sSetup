@@ -2,7 +2,7 @@
 
 # init kubernetes 
 kubeadm init --token 850274.1234567898502740 --token-ttl 0 \
---pod-network-cidr=172.16.0.0/16 --apiserver-advertise-address=203.250.35.27 
+--pod-network-cidr=172.16.0.0/16 --apiserver-advertise-address=203.250.33.144
 
 # config for master node only 
 mkdir -p $HOME/.kube
